@@ -6,4 +6,5 @@ class Address < ActiveRecord::Base
   validates :street, presence: true
   validates :city, presence: true
   validates :zip, presence: true
+  validates :zip, :numericality => { :only_integer => true }
 end

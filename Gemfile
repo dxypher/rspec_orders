@@ -8,6 +8,7 @@ gem 'rails', '3.2.7'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 # Gems used only for assets and not required
