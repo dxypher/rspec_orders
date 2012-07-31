@@ -1,4 +1,16 @@
 RspecOrders::Application.routes.draw do
+  get "addresses/index"
+
+  get "addresses/new"
+
+  get "addresses/create"
+
+  get "address/index"
+
+  get "address/new"
+
+  get "address/create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
