@@ -1,10 +1,10 @@
 class Address < ActiveRecord::Base
   belongs_to :user
-  
+  has_many :orders
   attr_accessible :city, :street, :zip
   
-  validates :street, presence: true
-  validates :city, presence: true
-  validates :zip, presence: true
-  validates :zip, :numericality => { :only_integer => true }
+  validates :street, :city, presence: true
+  validates :zip, presence: true,   
+                  numericality: true
+
 end

@@ -1,4 +1,8 @@
 RspecOrders::Application.routes.draw do
+  get "order/index"
+
+  get "order/create"
+
   get "addresses/index"
 
   get "addresses/new"

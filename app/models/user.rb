@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :address
-  has_many :orders
+  has_many :addresses
+  has_many :orders, dependent: :destroy
   
   attr_accessible :email, :name
   
