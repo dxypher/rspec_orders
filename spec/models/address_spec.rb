@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Address do
-  it { should belong_to(:user) } 
+  it { should belong_to(:user) }
+  it { should have_many(:orders)} 
   it { should validate_presence_of(:street) }
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:zip) }
@@ -26,7 +27,7 @@ describe Address do
   end
   
   context "user and address associations" do
-    before {@user = User.new(name: "Nick")}
+    before {@user = User.new(name: "Nick", email: "nick@example.com", password: "goodpass", password_confirmation: "goodpass")}
     before {@user.addresses.new(street:"1220 N. State Pkwy", city:"Chicago", zip: 60610)}
     
     it {should respond_to(:street)}
