@@ -1,5 +1,7 @@
 RspecOrders::Application.routes.draw do
-  get "order/index"
+  devise_for :users
+
+  root to: "order#index"
 
   get "order/create"
 
