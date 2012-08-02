@@ -9,12 +9,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   has_many :addresses
   has_many :orders, :through => :address
-  # has_many :orders, dependent: :destroy
   
   
   
   def place_order(address)
-    self.addresses(address.id)[0].orders.create
+    self.addresses.where({id: address.id})[0].orders.create
   end
   
 end
