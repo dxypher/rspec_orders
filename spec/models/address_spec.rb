@@ -15,14 +15,23 @@ describe Address do
   
   context "with valid address" do
     before {@address = Address.new(street: "1220 N. State Pkwy", city: "Chicago", zip: "60610")}
-     
+         
     it 'changes the number of Addresses' do
       expect {@address.save}.to change {Address.count}.by(1)
     end
-     
+         
     it {should respond_to(:street)}
     it {should respond_to(:city)}
     it {should respond_to(:zip)}
   end
   
+  context "user and address associations" do
+    before {@user = User.new(name: "Nick")}
+    before {@user.addresses.new(street:"1220 N. State Pkwy", city:"Chicago", zip: 60610)}
+    
+    it {should respond_to(:street)}
+    it {should respond_to(:city)}
+    it {should respond_to(:zip)}
+  end
+
 end
