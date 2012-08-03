@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -13,7 +14,13 @@ class User < ActiveRecord::Base
   
   
   def place_order(address)
-    self.addresses.find(address.id).orders.create
+    begin
+      self.addresses.find(address.id).orders.create
+    rescue
+      address = self.addresses.new
+      address.errors.add(:id, 'Unable to find the address requested')
+    end
   end
+  
   
 end
