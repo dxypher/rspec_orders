@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   
   
   def place_order(address)
-    self.addresses.where("id = ?", address.id)[0].orders.create
+    self.addresses.find(address.id).orders.create
   end
   
 end
