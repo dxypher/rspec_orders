@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   def place_order(address)
     begin
       self.addresses.find(address.id).orders.create
-    rescue
+    rescue Exception
       address = self.addresses.new
       address.errors.add(:id, 'Unable to find the address requested')
     end
